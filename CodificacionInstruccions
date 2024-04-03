@@ -1,0 +1,9 @@
+8bits numero
+
+2bits codigo de acción
+
+2bits número de registro
+
+2bits banco/caché a modificar
+
+1bit  operacion (ALU)
