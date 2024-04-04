@@ -8,6 +8,7 @@
 
 2bits operacion (ALU)
 
+***********************
 ---------------------------------------------
 OO->Modificacion de datos en memoria
 	1. Numero a cargar (en caso de carga)
@@ -27,16 +28,16 @@ Ejemplo:
 	OPCION0, carga inmediata (xxxxxxxxxxxxx|0|01)
 		1. Numero a cargar (en caso de carga)
 		2. Codigo de acción
-				00 Mantener
-				01 ShiftRight
-				10 ShiftLeft
-				11 Cargar
-		3. 1bit vacio
-		4. Modificar regA (0), regB(1)
+			00 Mantener
+			01 ShiftRight
+			10 ShiftLeft
+			11 Cargar
+		3. Modificar regA (0), regB(1)
+		4. 2bits vacios
 		5. Cero (OPCION0)
 Ejemplo
-01001010|11|x|1|0|01    ->Numero a cargar|Operacion carga|x|Registro B|Codigo opcion0|Codigo modificacion reg
-
+01001010|11|1|xx|0|01    ->Numero a cargar|Operacion carga|Registro B|xx|Codigo opcion0|Codigo modificacion reg
+*********************** HASTA AQUI FUNCIONANDO
 
 	OPCION1, carga de memoria (xxxxxxxxxxxxx|1|01)
 		1. Numero de registro de cada banco
