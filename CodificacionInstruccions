@@ -8,15 +8,54 @@
 
 2bits operacion (ALU)
 
+---------------------------------------------
+OO->Modificacion de datos en memoria
+	1. Numero a cargar (en caso de carga)
+	2. Codigo de acción
+		00 Mantener
+		01 ShiftRight
+		10 ShiftLeft
+		11 Cargar
+	3. Numero de registro de cada banco
+	4. Banco que cargas
+Ejemplo:
+01001000|11|00|01|00	->Numero a cargar|Operacion carga|Registro 00|Banco 01|Codigo de carga en registro
 
-OO->Carga de datos en memoria
-01001000|11|00|01|00	->Numero a cargar|Operacion carga|Registro 00|Banco01|Codigo de carga en registro
 
-01->Carga en registro
+---------------------------------------------
+01->Modificacion de datos en registro
+	1. Numero a cargar (en caso de carga)
+	2. Codigo de acción
+                00 Mantener
+                01 ShiftRight
+                10 ShiftLeft
+                11 Cargar
+	3. 3bits vacios
+	4. Modificar regA (0), regB(1)
+Ejemplo
 xxxxxxxx|11|xx|01|01	->xxxx|Operacion carga|xxxx|Caché 01|Codigo carga en registro
+			((Operacion a modificar, para poder cargar numeros directamente en registro))
 
+---------------------------------------------
 10->Carga resultado ALU en memoria
-xxxxxxxx|11|10|11|10	->xxxx|Operacion carga|
+	1. 8bits vacios
+	2. Codigo de acción (11) Carga
+	3. Numero de registro de cada banco
+	4. Banco en el que se carga
+xxxxxxxx|11|10|11|10	->xxxx|Operacion carga|Registro 10|Banco 11|xx|¿?¿?¿??¿?¿?¿?¿?
 
+
+---------------------------------------------
 11->Operacion ALU
-xxxxxxxx|10|x|1|xx|11	->xxxx|Operacion suma|x|Acarreo|xx|Codigo suma
+	1. 8bits vacios
+	2. Operación
+		00 And
+		01 Or
+		10 Suma
+		11 Resta
+	3. 1bit vacio
+	4. Acarreo
+	5. 2bits vacios
+xxxxxxxx|10|x|1|xx|11	->xxxx|Operacion suma|x|Acarreo|xx|Codigo suma|
+
+			((Operacion a modificar con un futuro diseño ALU))
