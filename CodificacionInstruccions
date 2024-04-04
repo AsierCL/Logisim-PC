@@ -6,4 +6,17 @@
 
 2bits banco/caché a modificar
 
-1bit  operacion (ALU)
+2bits operacion (ALU)
+
+
+OO->Carga de datos en memoria
+01001000|11|00|01|00	->Numero a cargar|Operacion carga|Registro 00|Banco01|Codigo de carga en registro
+
+01->Carga en registro
+xxxxxxxx|11|xx|01|01	->xxxx|Operacion carga|xxxx|Caché 01|Codigo carga en registro
+
+10->Carga resultado ALU en memoria
+xxxxxxxx|11|10|11|10	->xxxx|Operacion carga|
+
+11->Operacion ALU
+xxxxxxxx|10|x|1|xx|11	->xxxx|Operacion suma|x|Acarreo|xx|Codigo suma
