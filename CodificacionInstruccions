@@ -27,25 +27,27 @@ Ejemplo:
 01->Modificacion de datos en registro
 	OPCION0, carga inmediata (xxxxxxxxxxxxx|0|01)
 		1. Numero a cargar (en caso de carga)
-		2. Codigo de acción
+		2. Cero (OPCION0)
+		3. 2bits vacios
+		4. Codigo de acción
 			00 Mantener
 			01 ShiftRight
 			10 ShiftLeft
 			11 Cargar
-		3. Modificar regA (0), regB(1)
-		4. 2bits vacios
-		5. Cero (OPCION0)
+		5. Modificar regA (0), regB(1)
 Ejemplo
-01001010|11|1|xx|0|01    ->Numero a cargar|Operacion carga|Registro B|xx|Codigo opcion0|Codigo modificacion reg
+01001010|0|xx|11|0|01    ->Numero a cargar|Codigo opcion0|xx|Código acción (carga)|Registro A|Codigo modificacion reg
 *********************** HASTA AQUI FUNCIONANDO
 
 	OPCION1, carga de memoria (xxxxxxxxxxxxx|1|01)
-		1. Numero de registro de cada banco
-		2. Banco que cargas
-		3. Codigo carga (11) ¿INNECESARIO?
+		1. 8bits vacios
+		2. Código opcion1
+		3. Modificar regA (0), regB(1)
+		4. Numero de registro de banco
+		5. Banco que cargas
 
 Ejemplo
-01|10|11|xxxxxxx|1|01	->Num Regs del que cargas|Num del banco|Codigo carga|Codigo opcion1|Codigo modificacion reg
+xxxxxxxx|1|0|01|10|01	->xxx|Codigo opcion1|Registro A|Num Regs del que cargas|Num del banco|Codigo modificacion reg
 
 
 ---------------------------------------------
