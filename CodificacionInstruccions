@@ -73,3 +73,45 @@ xxxxxxxx|11|10|11|10	->xxxx|Operacion carga|Registro 10|Banco 11|xx|¿?¿?¿??¿
 xxxxxxxx|10|x|1|xx|11	->xxxx|Operacion suma|x|Acarreo|xx|Codigo suma|
 
 			((Operacion a modificar con un futuro diseño ALU))
+
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+ALU REWORK
+
+11->Operacion ALU
+	1. 11bits vacios
+	2. 3bits operacions
+		000 Transferir A
+		001 A++
+		010 A+B
+		011 A+B+1
+		100 A+(¬B) complemento a 1
+		101 A+(¬B)+1 complemento a 2
+		110 A--
+		111 Transferir A
+	3. 2bits Código ALU (11)
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+Cargo 40 en Reg3, Banco 1		00101000|11|11|01|00
+Cargo 32 en Reg2, Banco 3		00100000|11|10|11|00
+Cargo 10 en Reg0, Banco 0		00001010|11|00|00|00
+Cargo -6 en Reg2, Banco 0		11111010|11|10|00|00
+Cargo 18 en Caché A			00001000|0|xx|11|0|01
+Cargo Reg3, Banco1 (40) en Caché B	xxxxxxxx|1|1|11|01|01
+A+B	(18+40)=58			xxxxxxxxxxx|010|11
+A-B	(18-40)=-22			xxxxxxxxxxx|101|11
+Cargo Reg0, Banco0 (10) en Caché A	xxxxxxxx|1|0|00|00|01
+Cargo Reg2, Banco0 (-6) en Caché B	xxxxxxxx|1|1|10|00|01
+A+B	(10+-6)=4			xxxxxxxxxxx|010|11
+A-B	(10--6)=16			xxxxxxxxxxx|101|11
