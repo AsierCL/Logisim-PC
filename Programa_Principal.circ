@@ -825,7 +825,7 @@
     <comp lib="4" loc="(960,510)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="8" loc="(375,585)" name="Text">
+    <comp lib="8" loc="(1035,682)" name="Text">
       <a name="text" val="00 keep 01 shift right 10 shift left 11 load"/>
     </comp>
     <wire from="(1010,520)" to="(1020,520)"/>
