@@ -46,12 +46,41 @@ This instruction is divided into 5 fields. From left to right: number to be load
 
 - The registration number, encoded in 2 bits. There are 4 records, and these are coded in the same way as the cells.
 
-- Action code. For In-memory data manipulation, the action code is always 00.
+- Action code. For in-memory data manipulation, the action code is always 00.
 
 Example: 
-00100001|11|10|01|00
+[00100001|11|10|01|00]
 Loading the number 33, in cell 2 of bank 1.
 
 Example: 
-xxxxxxxx|01|11|10|00
+[xxxxxxxx|01|11|10|00]
 Shift right the value found in cell 3 of record 2 one position to the right.
+
+
+### Cached data manipulation
+
+This type of instruction allows you to modify the information in the registers. In turn, it contains two subtypes: Immediate or direct loading, and loading from memory. The ninth largest bit decides whether the instruction is of subtype 0 (immediate loading) or subtype 1 (loading from memory).
+
+#### Subtype 0 (immediate loading)
+
+This instruction subtype contains 6 fields, corresponding, from left to right, to the number being loaded, the operation subtype (0), two empty bits, the action code, the target register and the type code (01).
+
+- The number corresponds to the first 8 bits. This will only be significant in case of load. Otherwise, those positions can have any value.
+
+- The subtype is encoded with a bit, 0 in this case (immediate loading).
+
+- Two insignificant bits.
+
+- The action code is encoded in 2 bits.
+    - 00 -> Maintains the previous value.
+    - 01 -> Shift right one position.
+    - 10 -> Shift left one position.
+    - 11 -> Load the value stored in the first 8 bits.
+
+- The selection of register A or register B is encoded with one bit. This is 0 for the first case, and 1 for the second.
+
+- Action code. For cached data manipulation, the action code is always 01.
+
+Example:
+[01001010|0|xx|11|0|01]
+Loading number 33, in register A.
