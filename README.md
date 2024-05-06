@@ -1,7 +1,7 @@
 
 # Computer in logisim
 
-This is a very basic computer created in Logisim Evolution. It only has simple functionalities implemented, which means it can work as a simple calculator with storage.
+This is a very basic computer created in [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution). It only has simple functionalities implemented, which means it can work as a simple calculator with storage.
 
 
 
@@ -33,6 +33,8 @@ This computer has a simple operation, based on some simple basic rules.
 
 The last 2 bits will always correspond to the operating mode.
 
+
+
 ### In-memory data manipulation
 
 This type of instruction allows you to modify some of the data stored in the memory banks. The available mods are shift and write.
@@ -54,17 +56,18 @@ This instruction is divided into 5 fields. From left to right: number to be load
 - Action code. For in-memory data manipulation, the action code is always 00.
 
 Example: 
-[00100001|11|10|01|00]
+[00100001|11|10|01|00]<br>
 Loading the number 33, in cell 2 of bank 1.
 
 Example: 
-[xxxxxxxx|01|11|10|00]
+[xxxxxxxx|01|11|10|00]<br>
 Shift right the value found in cell 3 of record 2 one position to the right.
 
 
 ### Cached data manipulation
 
 This type of instruction allows you to modify the information in the registers. In turn, it contains two subtypes: Immediate or direct loading, and loading from memory. The ninth largest bit decides whether the instruction is of subtype 0 (immediate loading) or subtype 1 (loading from memory).
+
 
 #### Subtype 0 (Immediate loading)
 
@@ -87,11 +90,11 @@ This instruction subtype contains 6 fields, corresponding, from left to right, t
 - Action code. For cached data manipulation, the action code is always 01.
 
 Example:
-[00100001|0|xx|11|0|01]
+[00100001|0|xx|11|0|01]<br>
 Loading number 33, in register A.
 
 Example: 
-[xxxxxxxx|0|xx|10|1|01]
+[xxxxxxxx|0|xx|10|1|01]<br>
 Shift left the value found in register B.
 
 
@@ -112,5 +115,12 @@ This instruction subtype contains 6 fields, corresponding, from left to right, 8
 - Action code. For cached data manipulation, the action code is always 01.
 
 Example:
-[xxxxxxxx|1|0|10|11|01]
+[xxxxxxxx|1|0|10|11|01]<br>
 Load into cache A the number stored in cell 2 of bank 3.
+
+
+### Save ALU result in memory
+
+This instruction allows the result obtained in the arithmetic logic unit (ALU) to be stored in memory. The fields of this instruction are 5: 8 empty bits, 2 bits of register action code (11), then 2 bits to choose the memory cell, and another 2 bits to choose the bank. Finally, the code for this instruction (01).
+
+#### ||| This function will be implemented in the future |||
