@@ -594,29 +594,10 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="0" loc="(390,130)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(390,170)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-    </comp>
-    <comp lib="0" loc="(450,150)" name="Power">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(560,130)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-    </comp>
     <comp lib="4" loc="(1030,510)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
     <comp lib="4" loc="(400,510)" name="D Flip-Flop">
-      <a name="appearance" val="logisim_evolution"/>
-    </comp>
-    <comp lib="4" loc="(450,100)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
     <comp lib="4" loc="(490,510)" name="D Flip-Flop">
@@ -656,8 +637,6 @@
     <wire from="(370,430)" to="(570,430)"/>
     <wire from="(370,440)" to="(480,440)"/>
     <wire from="(370,450)" to="(390,450)"/>
-    <wire from="(390,130)" to="(450,130)"/>
-    <wire from="(390,170)" to="(450,170)"/>
     <wire from="(390,450)" to="(390,520)"/>
     <wire from="(390,560)" to="(390,620)"/>
     <wire from="(390,620)" to="(480,620)"/>
@@ -668,7 +647,6 @@
     <wire from="(480,440)" to="(480,520)"/>
     <wire from="(480,560)" to="(480,620)"/>
     <wire from="(480,620)" to="(570,620)"/>
-    <wire from="(510,130)" to="(560,130)"/>
     <wire from="(510,570)" to="(510,630)"/>
     <wire from="(510,630)" to="(600,630)"/>
     <wire from="(540,480)" to="(1110,480)"/>

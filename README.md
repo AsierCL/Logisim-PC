@@ -142,3 +142,27 @@ With this instruction, we will operate with the values previously loaded in reco
   - 101 A+(¬B)+1 2's Complement
   - 110 A--
   - 111 Transfer A
+
+
+## Parts of the computer
+
+### ALU
+
+This ALU is made up of 1 bit cells.
+
+![1bitCell](Images/ALU_unitary_module.png)
+
+Chaining 8 of these, we can assemble the 8bits ALU.
+
+![ALU](Images/ALU.png)
+
+
+### Register
+
+The records are based on Flip-Flops type D the version with displacement, which is finally used, is composed of unit modules.
+
+![MemoryModuleCell](Images/MemoryModule.png)
+
+If we connect these chain modules with each other, both towards the following cell and to the previous one, we manage to register 8Bits with displacement in both directions.
+
+![MemoryModule](Images/Memory.png)
