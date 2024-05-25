@@ -2,6 +2,7 @@
 # Computer in logisim
 
 This is a very basic computer created in [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution). It only has simple functionalities implemented, which means it can work as a simple calculator with storage.
+![Implementation](Images/General.png)
 
 
 
@@ -121,6 +122,23 @@ Load into cache A the number stored in cell 2 of bank 3.
 
 ### Save ALU result in memory
 
-This instruction allows the result obtained in the arithmetic logic unit (ALU) to be stored in memory. The fields of this instruction are 5: 8 empty bits, 2 bits of register action code (11), then 2 bits to choose the memory cell, and another 2 bits to choose the bank. Finally, the code for this instruction (01).
+This instruction allows the result obtained in the arithmetic logic unit (ALU) to be stored in memory. The fields of this instruction are 5: 8 empty bits, 2 bits of register action code (11), then 2 bits to choose the memory cell, and another 2 bits to choose the bank. Finally, the code for this instruction (10).
 
 #### ||| This function will be implemented in the future |||
+
+
+### ALU Operation
+
+With this instruction, we will operate with the values previously loaded in records A and B. This is the only asynchronous operation of the computer. It consists of 11 empty bits, 3 operation, and 2 bits of the Instruction Code (11).
+
+- 11 bits vacios
+
+- 3 bits operation
+  - 000 Transfer A
+  - 001 A++
+  - 010 A+B
+  - 011 A+B+1
+  - 100 A+(¬B) 1's Complement
+  - 101 A+(¬B)+1 2's Complement
+  - 110 A--
+  - 111 Transfer A
